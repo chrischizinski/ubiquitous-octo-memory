@@ -11,7 +11,7 @@ if(!file.exists("feedback")){ # create a feedback folder if it doesnt exist
 
 fextension <- tools::file_ext(full_path) # check file extension
 
-if(str_detect(fextension, 'md')){
+if(stringr::str_detect(fextension, 'md')){
   knitr::purl(full_path, output = here::here("feedback",paste0(tools::file_path_sans_ext(hmw_filez), '.R'))) # convert to R script
   
   full_path <- here::here("feedback",paste0(tools::file_path_sans_ext(hmw_filez), '.R')) # update full path
