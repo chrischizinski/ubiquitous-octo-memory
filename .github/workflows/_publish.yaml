@@ -19,7 +19,6 @@ jobs:
             any::gt
             any::knitr
             any::here
-            any::tools
             
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
