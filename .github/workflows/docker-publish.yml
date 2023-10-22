@@ -7,14 +7,17 @@ name: Docker
 
 on:
   push:
-    branches: main
-    
+    branches: [ main ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  
+
+
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
@@ -24,7 +27,7 @@ jobs:
       packages: write
       contents: read
 
-steps:
+    steps:
       - uses: actions/checkout@v2
 
       - name: Build image
